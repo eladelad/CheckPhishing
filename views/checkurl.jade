@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  - if (locals.error)
+    div.error
+        p #{error}
+  - if (locals.match)
+    div.error
+        p URL #{url} match a category #{match}
+    a(href="/checkurl")
+  - else
+    - if (locals.url)
+        div.success
+            p URL #{url} is cool...!
+  p Check a url for bad stuff
+
+    div
+      form(action='/checkurl',method='post')
+        div(data-role='fieldcontain')
+          fieldset(data-role='controlgroup')
+            label(for='url') url
+               input(id='url',type='text',value='',placeholder='http://',name='url')
+        div(data-role='fieldcontain')
+          input(type='submit',value='Check URL',data-transition='fade', data-theme='c')
