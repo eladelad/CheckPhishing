@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
     var urlToCheck = req.body.url;
     var phishingArray = req.app.get("phishingArray");
     if(phishingArray.indexOf(urlToCheck)>-1){
-        renderPage(true, "Phishing", null);
+        responseAPI(true, "Phishing", null);
     }
     function responseAPI(foundThreat, threatName, error) {
         console.log("Trying to render " + foundThreat + " " + threatName + " " + error)
