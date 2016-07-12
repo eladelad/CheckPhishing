@@ -19,7 +19,7 @@ $(document).ready(function() {
                 console.log(data.error);
             } else {
                 if (data.hasOwnProperty('match')){
-                    message = "Danger! Url " + data.url + " Is a " + data.match + " Website. We recommend not to trust it";
+                    message = "Danger! Url " + data.url + " might be malicious website. We recommend not to trust it";
                     $("#url-test").addClass("alert-danger");
 
                 } else {

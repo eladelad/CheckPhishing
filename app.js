@@ -13,11 +13,16 @@ var api = require('./routes/api');
 var app = express();
 
 var fs  = require("fs");
-var db_path = "localdb/db.txt";
+//var db_path = "localdb/db.txt";
+var op_path = "localdb/openphish.txt";
+var pt_path = "localdb/phishtank.txt";
 var googleKeyFile = "googlekeyfile";
 
-var phishingArray = fs.readFileSync(db_path).toString().split('\n');
-app.set('phishingArray', phishingArray);
+var opArray = fs.readFileSync(op_path).toString().split('\n');
+app.set('opArray', opArray);
+
+var ptArray = fs.readFileSync(pt_path).toString().split('\n');
+app.set('ptArray', ptArray);
 
 var googleKey = fs.readFileSync(googleKeyFile).toString();
 app.set('googleKey', googleKey);
